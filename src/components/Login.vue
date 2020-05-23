@@ -1,5 +1,9 @@
 <template>
-  <div class="materialContainer">
+  <div>
+  <div class="background">
+    <img :src="imgSrc" width="100%" height="100%" alt="" />
+  </div>
+  <div class="materialContainer" >
     <div class="box">
       <div class="title">登录</div>
       <div class="input">
@@ -49,7 +53,27 @@
     </div>
 
   </div>
+  </div>
 </template>
 
+<script>
+  export default {
+    name:'login',
+    data(){
+      return {
+        imgSrc:require('../assets/bg.png')
+      }
+    }
+  }
+</script>
 <style scoped>
+  @import "../../static/css/style.css";
+  .background{
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;  /**宽高100%是为了图片铺满屏幕 */
+    z-index:-1;
+    position: absolute;
+  }
 </style>

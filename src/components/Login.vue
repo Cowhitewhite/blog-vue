@@ -8,16 +8,16 @@
       <div class="title">登录</div>
       <div class="input">
         <label for="name">用户名</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" v-model="user.userName">
         <span class="spin"></span>
       </div>
       <div class="input">
         <label for="pass">密码</label>
-        <input type="password" name="pass" id="pass">
+        <input type="password" name="pass" id="pass" v-model="user.password">
         <span class="spin"></span>
       </div>
       <div class="button login">
-        <button>
+        <button @click="login">
           <span>登录</span>
           <i class="fa fa-check"></i>
         </button>
@@ -61,7 +61,26 @@
     name:'login',
     data(){
       return {
-        imgSrc:require('../assets/bg.png')
+        imgSrc:require('../assets/bg.png'),
+        user: {
+          userName: '',
+          password: '',
+          rememberMe: false
+        }
+      }
+    },
+    methods: {
+      login() {
+        this.$axios.post('/elegant/login',this.user).then(res => {
+          console.log(res)
+          if (res.data.flag === true){
+               alert(res.data.msg)
+             }else {
+               alert(res.data.msg)
+             }
+          }).catch(function (err) {
+               alert("登录失败"+ err)
+        });
       }
     }
   }

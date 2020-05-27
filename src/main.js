@@ -5,9 +5,14 @@ import App from './App'
 import router from './router'
 import '../static/js/index'
 import axios from 'axios'
+import qs from 'qs';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import '../static/css/global.css'
+
+Vue.use(ElementUI);
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
-import qs from 'qs';
 Vue.prototype.qs = qs;
 axios.interceptors.request.use(
   config => {

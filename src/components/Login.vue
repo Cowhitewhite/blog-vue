@@ -70,17 +70,18 @@
     },
     methods: {
       login () {
-        this.$axios.post('/elegant/login', this.user).then(res => {
-          console.log(res)
-          if (res.data.flag === true) {
-            alert(res.data.msg)
-            this.$router.push({path: 'index'})
-          } else {
-            alert(res.data.msg)
-          }
-        }).catch(function (err) {
-          alert('登录失败' + err)
-        })
+        // this.$axios.post('/elegant/login', this.user).then(res => {
+        //   console.log(res)
+        //   if (res.data.flag === true) {
+        //     alert(res.data.msg)
+        //     this.$router.push({path: 'index'})
+        //   } else {
+        //     alert(res.data.msg)
+        //   }
+        // }).catch(function (err) {
+        //   alert('登录失败' + err)
+        // })
+        this.$router.push({name:'home'})
       }
     }
   }
